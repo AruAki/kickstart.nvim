@@ -34,33 +34,33 @@ require('blink.cmp').setup {
 
 -- 3. Modern LSP Setup
 local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-vim.lsp.enable('svelte', {
-  capabilities = capabilities,
-  settings = {
-    svelte = {
-      plugin = {
-        svelte = {
-          -- This is the magic toggle to show cleaner documentation
-          hover = { enable = true }
-        },
-        -- If you hate the internal TS definitions, you can tweak these
-        typescript = { hover = { enable = true } },
-      }
-    }
-  },
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      pattern = { "*.js", "*.ts" },
-      callback = function(ctx)
-        client.notify("$/onDidChangeTsOrJsFile", { uri = vim.uri_from_bufnr(ctx.buf) })
-      end,
-    })
-  end,
-})
+--
+-- vim.lsp.enable('svelte', {
+--   capabilities = capabilities,
+--   settings = {
+--     svelte = {
+--       plugin = {
+--         svelte = {
+--           -- This is the magic toggle to show cleaner documentation
+--           hover = { enable = true }
+--         },
+--         -- If you hate the internal TS definitions, you can tweak these
+--         typescript = { hover = { enable = true } },
+--       }
+--     }
+--   },
+--   on_attach = function(client, bufnr)
+--     vim.api.nvim_create_autocmd("BufWritePost", {
+--       pattern = { "*.js", "*.ts" },
+--       callback = function(ctx)
+--         client.notify("$/onDidChangeTsOrJsFile", { uri = vim.uri_from_bufnr(ctx.buf) })
+--       end,
+--     })
+--   end,
+-- })
 
 -- Other servers
-local web_servers = { 'ts_ls', 'cssls', 'html' }
+local web_servers = { 'ts_ls', 'cssls', 'html', 'tailwindcss', 'svelte' }
 for _, server in ipairs(web_servers) do
   vim.lsp.enable(server, { capabilities = capabilities })
 end
