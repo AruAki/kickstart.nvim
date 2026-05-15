@@ -1,0 +1,11 @@
+{
+  "name": "custom-svelte",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "svelte",
+        "path": "./svelte.json"
+      }
+    ]
+  }
+}

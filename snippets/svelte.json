@@ -1,0 +1,11 @@
+{
+  "Svelte TS Script": {
+    "prefix": "s-script",
+    "body": [
+      "<script lang=\"ts\">",
+      "\t$0",
+      "</script>"
+    ],
+    "description": "Script tag with TypeScript enabled"
+  }
+}

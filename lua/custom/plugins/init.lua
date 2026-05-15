@@ -3,16 +3,6 @@
 --
 -- See the kickstart.nvim README for more information
 
-return {
-  {
-    'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup() -- Enable auto tag closing
-    end,
-    ft = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'vue', 'svelte' }, -- Activate for relevant filetypes
-    lazy = true, -- Lazy-load the plugin when required
-  },
-}
 -- Iterate over all Lua files in the plugins directory and load them
 local plugins_dir = vim.fs.joinpath(vim.fn.stdpath 'config', 'lua', 'custom', 'plugins')
 for file_name, type in vim.fs.dir(plugins_dir) do
