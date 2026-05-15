@@ -7,5 +7,20 @@
       "</script>"
     ],
     "description": "Script tag with TypeScript enabled"
+  },
+  "Svelte Component": {
+    "prefix": "s-comp",
+    "body": [
+      "<script lang=\"ts\">",
+      "\timport type { Snippet } from 'svelte';",
+      "",
+      "\tlet { children }: { children: Snippet } = \\$props();",
+      "</script>",
+      "",
+      "<div>",
+      "\t{@render children()}$0",
+      "</div>"
+    ],
+    "description": "Svelte 5 component with children props"
   }
 }
