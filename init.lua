@@ -780,11 +780,16 @@ do
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
-        -- lua = true,
+        lua = true,
+        svelte = true,
+        typescript = true,
+        javascript = true,
+        json = true,
+        html = true,
         -- python = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
-        return { timeout_ms = 500 }
+        return { timeout_ms = 2000 }
       else
         return nil
       end
@@ -801,7 +806,7 @@ do
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = false },
       html = { 'prettierd', 'prettier', stop_after_first = false },
-      svelte = { 'prettier' },
+      svelte = { 'prettierd', 'prettier' },
     },
   }
 
@@ -904,7 +909,8 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'svelte', 'typescript', 'javascript', 'css' }
+  local parsers =
+    { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'svelte', 'typescript', 'javascript', 'css' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
