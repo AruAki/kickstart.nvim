@@ -786,6 +786,7 @@ do
         javascript = true,
         json = true,
         html = true,
+        cpp = true,
         -- python = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
@@ -807,6 +808,7 @@ do
       javascript = { 'prettierd', 'prettier', stop_after_first = false },
       html = { 'prettierd', 'prettier', stop_after_first = false },
       svelte = { 'prettierd', 'prettier' },
+      cpp = { 'clang-format' },
     },
   }
 
