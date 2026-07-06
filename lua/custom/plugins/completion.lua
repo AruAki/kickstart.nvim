@@ -23,8 +23,6 @@ require('blink.cmp').setup {
       auto_show = true,
       window = { border = 'rounded' },
     },
-    -- This helps filter out some of the internal snippet noise
-    list = { selection = { preselect = true, auto_insert = true } },
   },
 
   sources = {
