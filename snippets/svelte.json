@@ -1,5 +1,5 @@
 {
-  "Svelte TS Script": {
+  "svelte-script-block": {
     "prefix": "s-script",
     "body": [
       "<script lang=\"ts\">",
@@ -8,8 +8,8 @@
     ],
     "description": "Script tag with TypeScript enabled"
   },
-  "Svelte Component": {
-    "prefix": "s-comp",
+  "svelte-component": {
+    "prefix": "s-component",
     "body": [
       "<script lang=\"ts\">",
       "\timport type { Snippet } from 'svelte';",
@@ -22,5 +22,128 @@
       "</div>"
     ],
     "description": "Svelte 5 component with children props"
-  }
+  },
+  "svelte-if-block": {
+        "prefix": "s-if-block",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t${2: <!-- content here -->}",
+            "{/if}"
+        ],
+        "description": "if block"
+    },
+    "svelte-if-else-block": {
+        "prefix": "s-if-else-block",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t${2: <!-- content here -->}",
+            "{:else}",
+            "\t${3: <!-- else content here -->}",
+            "{/if}"
+        ],
+        "description": "if else block"
+    },
+    "svelte-else-block": {
+        "prefix": "s-else-block",
+        "body": [
+            "{:else}",
+            "\t${1: <!-- else content here -->}"
+        ],
+        "description": "else block"
+    },
+    "svelte-if-else-if-block": {
+        "prefix": "s-if-else-if-block",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t${2: <!-- content here -->}",
+            "{:else if ${3: otherCondition}}",
+            "\t${4: <!-- else if content here -->}",
+            "{:else}",
+            "\t${5: <!-- else content here -->}",
+            "{/if}"
+        ],
+        "description": "if else if block"
+    },
+    "svelte-else-if-block": {
+        "prefix": "s-else-if-block",
+        "body": [
+            "{:else if ${1: otherCondition}}",
+            "\t${2: <!-- else if content here -->}"
+        ],
+        "description": "else if block"
+    },
+    "svelte-each-block": {
+        "prefix": "s-each-block",
+        "body": [
+            "{#each ${1:items} as ${2:item}}",
+            "\t${3: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each block"
+    },
+    "svelte-each-else-block": {
+        "prefix": "s-each-else-block",
+        "body": [
+            "{#each ${1:items} as ${2:item}}",
+            "\t${3: <!-- content here -->}",
+            "{:else}",
+            "\t${4: <!-- empty list -->}",
+            "{/each}"
+        ],
+        "description": "each else block"
+    },
+    "svelte-each-index-block": {
+        "prefix": "s-each-index-block",
+        "body": [
+            "{#each ${1:items} as ${2:item},${3:i}}",
+            "\t${4: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each index block"
+    },
+    "svelte-each-key-block": {
+        "prefix": "s-each-key-block",
+        "body": [
+            "{#each ${1:items} as ${2:item},(${3:key})}",
+            "\t${4: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each index block"
+    },
+    "svelte-each-index-key-block": {
+        "prefix": "s-each-index-key-block",
+        "body": [
+            "{#each ${1:items} as ${2:item},i (${3:key})}",
+            "\t${4: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each index key block"
+    },
+    "svelte-snippet": {
+      "prefix": "s-snippet",
+      "body": [
+        "{#snippet ${1:name}(${2})}",
+        "\t$0",
+        "{/snippet}"
+      ],
+      "description": "Svelte 5 snippet block"
+    },
+    "onmount": {
+      "prefix": "s-onmount",
+      "body": [
+        "onMount(${1}() => {",
+        "\t$0",
+        "});"
+      ],
+      "description": "Svelte onMount"
+    },
+    "ondestroy": {
+      "prefix": "s-ondestroy",
+      "body": [
+        "onDestroy(() => {",
+        "\t$0",
+        "});"
+      ],
+      "description": "Svelte onDestroy"
+    }
 }

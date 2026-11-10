@@ -5,14 +5,13 @@ vim.pack.add {
 
 local luasnip = require 'luasnip'
 
-require('luasnip.loaders.from_vscode').lazy_load()
+-- require('luasnip.loaders.from_vscode').lazy_load()
 require('luasnip.loaders.from_vscode').lazy_load {
   paths = { vim.fn.stdpath 'config' .. '/snippets' },
 }
 -- Prefer custom ones over default
 luasnip.config.set_config {
   history = true,
-  override_priority = 1000,
 }
 
 require('blink.cmp').setup {
@@ -28,6 +27,9 @@ require('blink.cmp').setup {
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
   },
+  fuzzy = { implementation = 'lua' },
+
+  signature = { enabled = true },
 }
 
 -- local capabilities = require('blink.cmp').get_lsp_capabilities()
